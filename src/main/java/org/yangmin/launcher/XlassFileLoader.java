@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  * @author ym
  * @Title: ClassFileLoader
  * @Package org.yangmin.launcher
- * @Description: class文件加载器，根据类的全限定名加载class物理文件，并解密文件内容
+ * @Description: class文件加载器，根据类的全限定名加载class物理文件，并解密文件内容，文件需要在项目类路径下
  * @date 2021/9/17 15:10
  **/
 public class XlassFileLoader {
@@ -42,17 +42,18 @@ public class XlassFileLoader {
      * @return
      */
     public static byte[] getFileByte(String xlassName){
-        String fileName = "Hello.xlass";
+        String fileName = xlassName.replace(".",File.separator) + ".xlass";
         ClassLoader classLoader = XlassFileLoader.class.getClassLoader();
 
         try(InputStream  classIn = classLoader.getResourceAsStream(fileName) ){
+
+            assert classIn != null;
+
             //读取文件大小，创建文件大小的缓冲区用于存放文件字节数组
             URL resource = classLoader.getResource(fileName);
             File xlassFile = new File(resource.toURI());
 
             byte[] buffer = new byte[(int)xlassFile.length()];
-
-            assert classIn != null;
 
             classIn.read(buffer,0 , buffer.length);
 
