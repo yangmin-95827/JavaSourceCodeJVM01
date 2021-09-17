@@ -10,6 +10,23 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+# Idea config
+.idea/
+# mvn
+.mvn/
+*.iml
+# eclipse config
+.project
+.settings/
+.classpath
+.factorypath
+logs/
+# target files
+target/
+# huawei local cse
+snap/
+wal/
+
 # Package Files #
 *.jar
 *.war
