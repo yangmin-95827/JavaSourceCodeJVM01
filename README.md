@@ -8,6 +8,6 @@
 
 
 下面是 内存参数关系图
-![内存关系图](./src/main/resources/img/JVM内存参数.png)
+![内存关系图](src/main/resources/img/JVM_01.png)
 
 
